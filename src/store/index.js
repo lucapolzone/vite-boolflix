@@ -8,6 +8,7 @@ export const store = reactive({
     key: '59ca97a78bb8f370a70c11dbdd07bb0f'
   },
 
-  movies: []
+  movies: [],
+  TVseries: []
   
 })

@@ -8,13 +8,13 @@
     data() {
       return {
         store,
-        searchedTerm: ''
+        searchedTerm: 'scrubs'
       }
     },
 
     methods: {
-      startResearch() {
-        axios.get(store.api.uri + '/search/movie',
+      fetchMovies() {
+        axios.get(this.store.api.uri + '/search/movie',
           {
             params: {
               api_key: store.api.key,
@@ -32,6 +32,32 @@
             }
           })
         })
+      },
+
+      fetchTVSeries() {
+        axios.get(this.store.api.uri + '/search/tv',
+          {
+            params: {
+              api_key: store.api.key,
+              query: this.searchedTerm
+            }
+          }
+        ).then((response) => {
+          store.TVseries = response.data.results.map( (TVserie) => {
+            return {
+              name: TVserie.name,
+              original_title: TVserie.original_name,
+              language: TVserie.original_language,
+              vote: TVserie.vote_average
+            }
+          })
+        })
+      },
+
+
+      startResearch() {
+        this.fetchMovies();
+        this.fetchTVSeries();
       },
 
       getFlag(lang) {
@@ -54,6 +80,8 @@
     <button type="button" id="submit" @click="startResearch()">CERCA</button>
   </div>
 
+  <h2>MOVIES</h2>
+
   <div class="container">
     <ul v-for="movie in store.movies">
       <li>Titolo: {{ movie.title }}</li>
@@ -62,6 +90,18 @@
       <li>Voto: {{ movie.vote }}</li> 
     </ul>
   </div>
+
+  <h2>TV SERIES</h2>
+
+  <div class="container">
+    <ul v-for="TVserie in store.TVseries">
+      <li>Titolo: {{ TVserie.name }}</li>
+      <li>Titolo originale: {{ TVserie.original_title }}</li>
+      <li><img :src="getFlag(TVserie.language)" alt=""></li>
+      <li>Voto: {{ TVserie.vote }}</li> 
+    </ul>
+  </div>
+
 </template>
 
 <style>
