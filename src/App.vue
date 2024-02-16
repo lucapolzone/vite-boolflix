@@ -22,8 +22,15 @@
             }
           }
         ).then((response) => {
-          store.movies = response.data.results;
-          console.log(response.data.results)
+          //uso map() per ottimizzare il mio array dei risultati
+          store.movies = response.data.results.map( (movie) => {
+            return {
+              title: movie.title,
+              original_title: movie.original_title,
+              language: movie.original_language,
+              vote: movie.vote_average
+            }
+          })
         })
 
       }
@@ -44,8 +51,8 @@
     <ul v-for="movie in store.movies">
       <li>Titolo: {{ movie.title }}</li>
       <li>Titolo originale: {{ movie.original_title }}</li>
-      <li>Lingua: {{ movie.original_language }}</li>
-      <li>Voto: {{ movie.vote_average }}</li> 
+      <li>Lingua: {{ movie.language }}</li>
+      <li>Voto: {{ movie.vote }}</li> 
     </ul>
   </div>
 </template>
