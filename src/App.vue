@@ -14,15 +14,15 @@
 
     methods: {
       startResearch() {
-        axios.get('https://api.themoviedb.org/3/search/movie',
+        axios.get(store.api.uri + '/search/movie',
           {
             params: {
-              api_key: '59ca97a78bb8f370a70c11dbdd07bb0f',
+              api_key: store.api.key,
               query: this.searchedTerm
             }
           }
         ).then((response) => {
-          console.log(response.data)
+          console.log(response.data.results)
         })
 
       }
