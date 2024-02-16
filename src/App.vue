@@ -22,6 +22,7 @@
             }
           }
         ).then((response) => {
+          store.movies = response.data.results;
           console.log(response.data.results)
         })
 
@@ -33,18 +34,31 @@
 </script>
 
 <template>
-  <header>
+  <div class="container">
     <h1> {{ this.store.title }} </h1>
-      <input type="text" id="search" v-model="searchedTerm" @keyup.enter="startResearch()">
-      <button type="button" id="submit" @click="startResearch()">CERCA</button>
-  </header>
+    <input type="text" id="search" v-model="searchedTerm" @keyup.enter="startResearch()">
+    <button type="button" id="submit" @click="startResearch()">CERCA</button>
+  </div>
+
+  <div class="container">
+    <ul v-for="movie in store.movies">
+      <li>Titolo: {{ movie.title }}</li>
+      <li>Titolo originale: {{ movie.original_title }}</li>
+      <li>Lingua: {{ movie.original_language }}</li>
+      <li>Voto: {{ movie.vote_average }}</li> 
+    </ul>
+  </div>
 </template>
 
 <style>
 
 body {
-  background-color: #c3dadb;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  margin-bottom: 3rem;
 }
 
 </style>
