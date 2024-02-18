@@ -29,7 +29,10 @@
       <li>Titolo: {{ movie.title }}</li>
       <li>Titolo originale: {{ movie.original_title }}</li>
       <li><img :src="getFlag(movie.language)" alt=""></li>
-      <li>Voto: {{ movie.vote }}</li> 
+      <li>
+        Voto:
+        <font-awesome-icon v-for="star in 5" :icon="(star <= movie.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
+      </li> 
       <li><img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt=""></li> 
     </ul>
 
@@ -39,7 +42,10 @@
       <li>Titolo: {{ TVserie.name }}</li>
       <li>Titolo originale: {{ TVserie.original_title }}</li>
       <li><img :src="getFlag(TVserie.language)" alt=""></li>
-      <li>Voto: {{ TVserie.vote }}</li> 
+      <li>
+        Voto:
+        <font-awesome-icon v-for="star in 5" :icon="(star <= TVserie.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
+      </li> 
       <li><img :src="`https://image.tmdb.org/t/p/w342/${TVserie.poster_path}`" alt=""></li> 
     </ul>
   </div>
