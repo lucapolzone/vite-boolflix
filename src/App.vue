@@ -28,6 +28,7 @@
           //uso map() per ottimizzare il mio array dei risultati
           store.movies = response.data.results.map( (movie) => {
             return {
+              id: movie.id,
               title: movie.title,
               original_title: movie.original_title,
               language: movie.original_language,
@@ -49,6 +50,7 @@
         ).then((response) => {
           store.TVseries = response.data.results.map( (TVserie) => {
             return {
+              id: TVserie.id,
               name: TVserie.name,
               original_title: TVserie.original_name,
               language: TVserie.original_language,

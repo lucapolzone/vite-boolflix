@@ -17,10 +17,10 @@
 
   <div class="container">
     <h2>MOVIES</h2>
-    <app-card v-for="movie in store.movies" :videoElement="movie" />
+    <app-card v-for="movie in store.movies" :videoElement="movie" :key="movie.id"/>
 
     <h2>TV SERIES</h2>
-    <app-card v-for="TVserie in store.TVseries" :videoElement="TVserie" />
+    <app-card v-for="TVserie in store.TVseries" :videoElement="TVserie" :key="TVserie.id"/>
 
   </div>
 
