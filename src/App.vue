@@ -31,7 +31,7 @@
               title: movie.title,
               original_title: movie.original_title,
               language: movie.original_language,
-              vote: movie.vote_average,
+              vote: Math.ceil(movie.vote_average / 2),
               poster_path: movie.poster_path
             }
           })
@@ -52,7 +52,7 @@
               name: TVserie.name,
               original_title: TVserie.original_name,
               language: TVserie.original_language,
-              vote: TVserie.vote_average,
+              vote: Math.ceil(TVserie.vote_average / 2),
               poster_path: TVserie.poster_path
             }
           })
