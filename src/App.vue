@@ -8,17 +8,19 @@
     data() {
       return {
         store,
-        searchedTerm: 'scrubs'
+        // searchedTerm: 'scrubs'
       }
     },
 
+    components: { AppHeader },
+
     methods: {
-      fetchMovies() {
+      fetchMovies(searchedTerm) {
         axios.get(this.store.api.uri + '/search/movie',
           {
             params: {
               api_key: store.api.key,
-              query: this.searchedTerm
+              query: searchedTerm
             }
           }
         ).then((response) => {
@@ -34,12 +36,12 @@
         })
       },
 
-      fetchTVSeries() {
+      fetchTVSeries(searchedTerm) {
         axios.get(this.store.api.uri + '/search/tv',
           {
             params: {
               api_key: store.api.key,
-              query: this.searchedTerm
+              query: searchedTerm
             }
           }
         ).then((response) => {
@@ -55,9 +57,9 @@
       },
 
 
-      startResearch() {
-        this.fetchMovies();
-        this.fetchTVSeries();
+      startResearch(searchedTerm) {
+        this.fetchMovies(searchedTerm);
+        this.fetchTVSeries(searchedTerm);
       },
 
       getFlag(lang) {
@@ -76,8 +78,7 @@
 <template>
   <div class="container">
     <h1> {{ this.store.title }} </h1>
-    <input type="text" id="search" v-model="searchedTerm" @keyup.enter="startResearch()">
-    <button type="button" id="submit" @click="startResearch()">CERCA</button>
+    <app-header @searchEvent="startResearch"  />
   </div>
 
   <h2>MOVIES</h2>
