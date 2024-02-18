@@ -1,5 +1,6 @@
 <script>
   import { store } from '../store/';
+  import AppCard from './AppCard.vue';
 
   export default {
     data() {
@@ -7,47 +8,20 @@
         store,
       }
     },
-    methods: {
-      getFlag(lang) {
-        if (lang == 'it') {
-          //gestisco dinamicamente il path relativo dell'immagine
-          return new URL('../assets/img/ita.png', import.meta.url).href;
-        }
-        if (lang == 'en') return new URL('../assets/img/en.png', import.meta.url).href;
-      }
 
-    }
+    components: { AppCard }
   };
 </script>
 
 <template>
 
-    <div class="container">
+  <div class="container">
     <h2>MOVIES</h2>
-
-    <ul v-for="movie in store.movies">
-      <li>Titolo: {{ movie.title }}</li>
-      <li>Titolo originale: {{ movie.original_title }}</li>
-      <li><img :src="getFlag(movie.language)" alt=""></li>
-      <li>
-        Voto:
-        <font-awesome-icon v-for="star in 5" :icon="(star <= movie.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
-      </li> 
-      <li><img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt=""></li> 
-    </ul>
+    <app-card v-for="movie in store.movies" :videoElement="movie" />
 
     <h2>TV SERIES</h2>
+    <app-card v-for="TVserie in store.TVseries" :videoElement="TVserie" />
 
-    <ul v-for="TVserie in store.TVseries">
-      <li>Titolo: {{ TVserie.name }}</li>
-      <li>Titolo originale: {{ TVserie.original_title }}</li>
-      <li><img :src="getFlag(TVserie.language)" alt=""></li>
-      <li>
-        Voto:
-        <font-awesome-icon v-for="star in 5" :icon="(star <= TVserie.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
-      </li> 
-      <li><img :src="`https://image.tmdb.org/t/p/w342/${TVserie.poster_path}`" alt=""></li> 
-    </ul>
   </div>
 
 </template>
