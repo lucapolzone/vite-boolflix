@@ -31,7 +31,8 @@
               title: movie.title,
               original_title: movie.original_title,
               language: movie.original_language,
-              vote: movie.vote_average
+              vote: movie.vote_average,
+              poster_path: movie.poster_path
             }
           })
         })
@@ -51,7 +52,8 @@
               name: TVserie.name,
               original_title: TVserie.original_name,
               language: TVserie.original_language,
-              vote: TVserie.vote_average
+              vote: TVserie.vote_average,
+              poster_path: TVserie.poster_path
             }
           })
         })

@@ -30,6 +30,7 @@
       <li>Titolo originale: {{ movie.original_title }}</li>
       <li><img :src="getFlag(movie.language)" alt=""></li>
       <li>Voto: {{ movie.vote }}</li> 
+      <li><img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt=""></li> 
     </ul>
 
     <h2>TV SERIES</h2>
@@ -39,6 +40,7 @@
       <li>Titolo originale: {{ TVserie.original_title }}</li>
       <li><img :src="getFlag(TVserie.language)" alt=""></li>
       <li>Voto: {{ TVserie.vote }}</li> 
+      <li><img :src="`https://image.tmdb.org/t/p/w342/${TVserie.poster_path}`" alt=""></li> 
     </ul>
   </div>
 
