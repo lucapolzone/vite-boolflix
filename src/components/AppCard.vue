@@ -11,7 +11,12 @@
           return new URL('../assets/img/ita.png', import.meta.url).href;
         }
         if (lang == 'en') return new URL('../assets/img/en.png', import.meta.url).href;
-        return 'default flag';
+        if (lang == 'de') return new URL('../assets/img/de.png', import.meta.url).href;
+        if (lang == 'es') return new URL('../assets/img/es.png', import.meta.url).href;
+        if (lang == 'fi') return new URL('../assets/img/fi.png', import.meta.url).href;
+        if (lang == 'fr') return new URL('../assets/img/fr.png', import.meta.url).href;
+        if (lang == 'jp') return new URL('../assets/img/jp.png', import.meta.url).href;
+        return new URL('../assets/img/default.png', import.meta.url).href;
       }
     }
   }

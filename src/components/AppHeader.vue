@@ -3,7 +3,7 @@
   export default {
     data() {
       return {
-        searchedTerm: 'scrubs'
+        searchedTerm: ''
 
       }
     },

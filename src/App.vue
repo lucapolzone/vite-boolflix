@@ -9,7 +9,6 @@
     data() {
       return {
         store,
-        // searchedTerm: 'scrubs'
       }
     },
 
