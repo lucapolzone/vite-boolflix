@@ -18,7 +18,7 @@
     <div class="container d-flex justify-content-between align-items-center">
       <h1>BOOLFLIX</h1>
       <div>
-        <input type="text" class="me-4" id="search" v-model="searchedTerm" @keyup.enter="$emit('searchEvent', this.searchedTerm)">
+        <input type="text" class="me-4 p-1" id="search" v-model="searchedTerm" @keyup.enter="$emit('searchEvent', this.searchedTerm)">
         <button type="button" class="btn btn-danger" id="submit" @click="$emit('searchEvent', this.searchedTerm)">CERCA</button>
       </div>
     </div>

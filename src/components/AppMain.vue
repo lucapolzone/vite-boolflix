@@ -18,20 +18,30 @@
 <main>
   <div class="container">
     <h2>MOVIES</h2>
-    <app-card v-for="movie in store.movies" :videoElement="movie" :key="movie.id"/>
+    <div class="wrapper d-flex">
+      <app-card v-for="movie in store.movies" :videoElement="movie" :key="movie.id"/>
+    </div>
+  </div>
 
+  <div class="container">
     <h2>TV SERIES</h2>
+    <div class="wrapper d-flex">
     <app-card v-for="TVserie in store.TVseries" :videoElement="TVserie" :key="TVserie.id"/>
+    </div>
 
   </div>
 </main>
 
 </template>
 
-<style scoped>
-.container {
-  margin: 0 auto;
-  margin-bottom: 3rem;
-}
+<style lang="scss" scoped>
+  .container {
+    margin: 0 auto;
+    margin-top: 2rem;
+    
+    .wrapper {
+      flex-wrap: wrap;
+    }
+  }
 
 </style>

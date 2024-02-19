@@ -23,17 +23,29 @@
 </script>
 
 <template>
-  <ul>
-    <li>Titolo: {{ videoElement.title }}</li>
-    <li>Titolo originale: {{ videoElement.original_title }}</li>
-    <li><img :src="getFlag(videoElement.language)" alt=""></li>
-    <li>
-      Voto:
-      <font-awesome-icon v-for="star in 5" :icon="(star <= videoElement.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
-    </li> 
-    <li><img :src="`https://image.tmdb.org/t/p/w342/${videoElement.poster_path}`" alt=""></li> 
-  </ul>
+  <div class="wrapper-card mx-1 d-flex">
+    <ul>
+      <li>Titolo: {{ videoElement.title }}</li>
+      <li>Titolo originale: {{ videoElement.original_title }}</li>
+      <li><img :src="getFlag(videoElement.language)" alt=""></li>
+      <li>
+        Voto:
+        <font-awesome-icon v-for="star in 5" :icon="(star <= videoElement.vote) ? 'fa-solid fa-star' : 'fa-regular fa-star'" />
+      </li> 
+      <li><img :src="`https://image.tmdb.org/t/p/w342/${videoElement.poster_path}`" alt=""></li> 
+    </ul>
+  </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+  .wrapper-card {
+    border: 2px solid red;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    
+    .fa-star {
+      color: orange;
+    }
+  }
 </style>
