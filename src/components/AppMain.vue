@@ -15,6 +15,7 @@
 
 <template>
 
+<main>
   <div class="container">
     <h2>MOVIES</h2>
     <app-card v-for="movie in store.movies" :videoElement="movie" :key="movie.id"/>
@@ -23,6 +24,7 @@
     <app-card v-for="TVserie in store.TVseries" :videoElement="TVserie" :key="TVserie.id"/>
 
   </div>
+</main>
 
 </template>
 

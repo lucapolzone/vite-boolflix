@@ -74,13 +74,8 @@
 </script>
 
 <template>
-  <div class="container">
-    <h1> {{ this.store.title }} </h1>
-    <app-header @searchEvent="startResearch" />
-    <app-main />
-  </div>
-
-
+  <app-header @searchEvent="startResearch" />
+  <app-main />
 
 </template>
 
