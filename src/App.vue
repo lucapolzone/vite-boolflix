@@ -84,15 +84,7 @@
 
 </template>
 
-<style>
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
-  margin: 0 auto;
-  margin-bottom: 3rem;
-}
-
+<style lang="scss">
+  @use './styles/general.scss';
+  @use './styles/partials/_variables.scss';
 </style>
